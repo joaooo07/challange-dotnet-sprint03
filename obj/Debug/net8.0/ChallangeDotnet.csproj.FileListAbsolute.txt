@@ -149,3 +149,4 @@ C:\Users\joao\source\repos\ChallangeDotnet\ChallangeDotnet\obj\Debug\net8.0\Chal
 C:\Users\joao\source\repos\ChallangeDotnet\ChallangeDotnet\obj\Debug\net8.0\ref\ChallangeDotnet.dll
 C:\Users\joao\source\repos\ChallangeDotnet\ChallangeDotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
 C:\Users\joao\source\repos\ChallangeDotnet\ChallangeDotnet\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\joao\source\repos\ChallangeDotnet\ChallangeDotnet\obj\Debug\net8.0\ChallangeDotnet.sourcelink.json

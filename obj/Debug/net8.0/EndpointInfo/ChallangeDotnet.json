@@ -42,7 +42,8 @@
                   "items": {
                     "$ref": "#/components/schemas/MotoEntity"
                   }
-                }
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
               },
               "application/json": {
                 "schema": {
@@ -50,7 +51,8 @@
                   "items": {
                     "$ref": "#/components/schemas/MotoEntity"
                   }
-                }
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
               },
               "text/json": {
                 "schema": {
@@ -58,7 +60,8 @@
                   "items": {
                     "$ref": "#/components/schemas/MotoEntity"
                   }
-                }
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
               }
             }
           },
@@ -71,22 +74,27 @@
         "tags": [
           "Moto"
         ],
+        "summary": "Cria uma nova moto",
+        "description": "Adiciona uma nova moto ao sistema.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/MotoDto"
-              }
+              },
+              "example": {"modelo":"CB 500F","marca":"Honda","ano":2022}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/MotoDto"
-              }
+              },
+              "example": {"modelo":"CB 500F","marca":"Honda","ano":2022}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/MotoDto"
-              }
+              },
+              "example": {"modelo":"CB 500F","marca":"Honda","ano":2022}
             }
           }
         },
@@ -97,17 +105,20 @@
               "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/MotoEntity"
-                }
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
               },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MotoEntity"
-                }
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
               },
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MotoEntity"
-                }
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
               }
             }
           }
@@ -139,17 +150,20 @@
               "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/MotoEntity"
-                }
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
               },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MotoEntity"
-                }
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
               },
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MotoEntity"
-                }
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
               }
             }
           },
@@ -162,6 +176,8 @@
         "tags": [
           "Moto"
         ],
+        "summary": "Atualiza moto",
+        "description": "Edita os dados de uma moto já cadastrada.",
         "parameters": [
           {
             "name": "id",
@@ -178,17 +194,20 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/MotoDto"
-              }
+              },
+              "example": {"modelo":"CB 500F","marca":"Honda","ano":2022}
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/MotoDto"
-              }
+              },
+              "example": {"modelo":"CB 500F","marca":"Honda","ano":2022}
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/MotoDto"
-              }
+              },
+              "example": {"modelo":"CB 500F","marca":"Honda","ano":2022}
             }
           }
         },
@@ -202,6 +221,8 @@
         "tags": [
           "Moto"
         ],
+        "summary": "Deleta moto",
+        "description": "Remove uma moto do sistema pelo ID.",
         "parameters": [
           {
             "name": "id",
@@ -215,7 +236,30 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Moto deletada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotoEntity"
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotoEntity"
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotoEntity"
+                },
+                "example": {"id":1,"modelo":"MT-07","marca":"Yamaha","ano":2023}
+              }
+            }
+          },
+          "404": {
+            "description": "Moto não encontrada"
           }
         }
       }

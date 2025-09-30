@@ -4,6 +4,8 @@ using ChallangeDotnet.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using Swashbuckle.AspNetCore.Annotations;
+using Swashbuckle.AspNetCore.Filters; // precisa para os exemplos
+using ChallangeDotnet.Presentation.Examples; // namespace onde você vai criar MotoRequestExample e MotoResponseExample
 
 namespace ChallangeDotnet.Presentation.Controllers
 {
@@ -25,6 +27,7 @@ namespace ChallangeDotnet.Presentation.Controllers
         )]
         [SwaggerResponse(statusCode: 200, description: "Lista retornada com sucesso", type: typeof(IEnumerable<MotoEntity>))]
         [SwaggerResponse(statusCode: 204, description: "Não possui dados para motos")]
+        [SwaggerResponseExample(200, typeof(MotoResponseExample))] // <-- exemplo de lista
         [EnableRateLimiting("rateLimitePolicy")]
         public async Task<IActionResult> Get(int Deslocamento = 0, int RegistrosRetornado = 3)
         {
@@ -70,6 +73,7 @@ namespace ChallangeDotnet.Presentation.Controllers
         )]
         [SwaggerResponse(statusCode: 200, description: "Moto encontrada", type: typeof(MotoEntity))]
         [SwaggerResponse(statusCode: 404, description: "Moto não encontrada")]
+        [SwaggerResponseExample(200, typeof(MotoResponseExample))] // <-- exemplo de resposta única
         public async Task<IActionResult> Get(int id)
         {
             var result = await _motoUseCase.ObterUmaMotoAsync(id);
@@ -92,6 +96,12 @@ namespace ChallangeDotnet.Presentation.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(
+            Summary = "Cria uma nova moto",
+            Description = "Adiciona uma nova moto ao sistema."
+        )]
+        [SwaggerRequestExample(typeof(MotoDto), typeof(MotoRequestExample))] // <-- exemplo de request
+        [SwaggerResponseExample(200, typeof(MotoResponseExample))] // <-- exemplo de response
         [SwaggerResponse(statusCode: 200, description: "Moto salva com sucesso", type: typeof(MotoEntity))]
         public async Task<IActionResult> Post(MotoDto entity)
         {
@@ -103,6 +113,12 @@ namespace ChallangeDotnet.Presentation.Controllers
         }
 
         [HttpPut("{id}")]
+        [SwaggerOperation(
+            Summary = "Atualiza moto",
+            Description = "Edita os dados de uma moto já cadastrada."
+        )]
+        [SwaggerRequestExample(typeof(MotoDto), typeof(MotoRequestExample))]
+        [SwaggerResponseExample(200, typeof(MotoResponseExample))]
         public async Task<IActionResult> Put(int id, MotoDto entity)
         {
             var result = await _motoUseCase.EditarMotoAsync(id, entity);
@@ -113,6 +129,13 @@ namespace ChallangeDotnet.Presentation.Controllers
         }
 
         [HttpDelete("{id}")]
+        [SwaggerOperation(
+            Summary = "Deleta moto",
+            Description = "Remove uma moto do sistema pelo ID."
+        )]
+        [SwaggerResponse(statusCode: 200, description: "Moto deletada com sucesso", type: typeof(MotoEntity))]
+        [SwaggerResponse(statusCode: 404, description: "Moto não encontrada")]
+        [SwaggerResponseExample(200, typeof(MotoResponseExample))]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _motoUseCase.DeletarMotoAsync(id);

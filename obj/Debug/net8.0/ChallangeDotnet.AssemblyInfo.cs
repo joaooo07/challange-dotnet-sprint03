@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChallangeDotnet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92d7f835333897fde20c9e368ffe4e6f797d4f1a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5b40d176480a86d8f8fbed3fa02be148991e452")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChallangeDotnet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChallangeDotnet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
